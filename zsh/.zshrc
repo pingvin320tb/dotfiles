@@ -121,11 +121,20 @@ mvd() {
     mkdir -p "$(dirname "$2")" && mv "$1" "$2"
 }
 
-# eza (замена ls)
-# alias ls='eza --icons'
-# alias ll='eza -l --icons'
-# alias la='eza -la --icons'
-# alias lt='eza --tree --icons'
+# eza alias fix (ls)
+unalias ls 2>/dev/null
+unalias ll 2>/dev/null
+unalias la 2>/dev/null
+
+ls() { eza --icons "$@" }
+ll() { eza -l --icons "$@" }
+la() { eza -la --icons "$@" }
+
+if (( $+commands[eza] )); then
+  compdef _eza ls
+  compdef _eza ll
+  compdef _eza la
+fi
 
 # bat (cat)
 alias cat='bat'
