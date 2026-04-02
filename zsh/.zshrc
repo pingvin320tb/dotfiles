@@ -116,11 +116,6 @@ source $ZSH/oh-my-zsh.sh
  alias zshconf="nvim ~/.zshrc"
  alias ohmyzsh="nvim ~/.oh-my-zsh"
 
-# Функция для перемещения с созданием папок
-mvd() {
-    mkdir -p "$(dirname "$2")" && mv "$1" "$2"
-}
-
 # eza alias fix (ls)
 unalias ls 2>/dev/null
 unalias ll 2>/dev/null
