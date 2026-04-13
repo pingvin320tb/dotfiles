@@ -1,0 +1,163 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "niri/workspaces",
+        "cpu",
+        "memory",
+        "custom/music"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "network",
+        "tray",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "niri/language",
+        "custom/power"
+    ],
+    "pulseaudio": {
+        "tooltip": false,
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "{icon} {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "format-icons": {
+            "default": [
+                "  ",
+                "  ",
+                "  "
+            ]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "   {volume}%",
+        "format-source-muted": "     {volume}%",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "tooltip": false
+    },
+    "network": {
+        "interval": 2,
+        "tooltip": false,
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  | {ifname}  󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}"
+    },
+    "backlight": {
+        "tooltip": false,
+        "format": " {}%",
+        "interval": 1,
+        "on-scroll-up": "light -A 5",
+        "on-scroll-down": "light -U 5"
+    },
+    "niri/language": {
+    "format": "  {}",
+    "format-en": "EN",
+    "format-ru": "RU"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon}  {time}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "<span size='16pt'>{:%H:%M}</span>",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#fabd2f'><b>{}</b></span>",
+                "days": "<span color='#ebdbb2'>{}</span>",
+                "weeks": "<span color='#fe8019'><b>W{}</b></span>",
+                "weekdays": "<span color='#fe8019'><b>{}</b></span>",
+                "today": "<span color='#fb4934'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 2,
+        "format": "  {used}GiB",
+        "max-length": 10
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    "custom/launcher": {
+        "format": "∞",
+        "on-click": "fuzzel",
+        "on-click-right": "killall fuzzel"
+    },
+    "custom/power": {
+        "format": "<span size='18pt'>⏻</span>",
+        "on-click": "wlogout"
+    },
+    "user": {
+        "format": "{user}",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": true,
+        "on-click": "fuzzel",
+        "on-click-right": "killall fuzzel"
+    },
+    "custom/notifications": {
+        "format": ""
+    },
+    "niri/workspaces": {
+    "format": "{index}"
+},
+    "power-profiles-daemon": {
+        "format": "{icon}  {profile}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "custom/music": {
+        "exec": "$HOME/.config/waybar/scripts/spotify.sh",
+        "interval": 2,
+        "on-click":"playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "max-length": 60,
+        "escape": true
+    }
+}

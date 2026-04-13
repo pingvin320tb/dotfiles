@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
  alias zshconf="nvim ~/.zshrc"
  alias ohmyzsh="nvim ~/.oh-my-zsh"
-
+ alias ff="fastfetch"
 # eza alias fix (ls)
 unalias ls 2>/dev/null
 unalias ll 2>/dev/null
@@ -145,3 +145,6 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
+[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
