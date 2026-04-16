@@ -44,7 +44,7 @@
         "interval": 2,
         "tooltip": false,
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  | {ifname}  󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}"
+        "format-ethernet": "󰈀  | {ifname}  󰜮 {bandwidthDownBytes} 󰜷 {bandwidthUpBytes}"
     },
     "backlight": {
         "tooltip": false,
