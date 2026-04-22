@@ -115,7 +115,11 @@ output "DVI-D-1" {
     mode "1920x1080@60"
     position x=1920 y=0
 }
-
+// cursor theme
+cursor {
+    xcursor-theme "Vimix-cursors"
+    xcursor-size 24
+}
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
@@ -177,13 +181,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-gradient from="#FABD2F" to="#D79921" angle=45
+        active-gradient from="#FABD2F" to="#FB4934" angle=45
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#504945"
+        // inactive-color "#504945"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -360,6 +364,16 @@ window-rule {
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
+// steam notification fix 
+window-rule {
+    match app-id="^steam$" title="^notificationtoasts"
+    open-floating true
+    default-floating-position x=1600 y=950
+    focus-ring {
+        off
+    }
+    // opacity 0.8
+}
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
@@ -394,7 +408,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+W hotkey-overlay-title="Set random wallpaper" { spawn "sh" "-c" "awww img $(find /home/semen/Изображения/awww -type f | shuf -n 1) --transition-type grow --transition-duration 2"; }
-    Mod+E hotkey-overlay-title="Open dolphin" { spawn-sh "dolphin"; }
+    Mod+E hotkey-overlay-title="Open file manager:pcmanfm" { spawn-sh "pcmanfm-qt"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
