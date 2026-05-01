@@ -1,6 +1,6 @@
 * {
     border: none;
-    font-family: "Ubuntu Nerd Font";
+    font-family: "Ubuntu Nerd Font", "JetBrainsMono Nerd Font";
 }
 
 window#waybar {
@@ -48,7 +48,7 @@ tooltip label {
     /* Текст: fg (бежевый) */
     color: #ebdbb2;
     /* Фон модулей: bg1 */
-    background-color: rgba(60, 56, 54, 0.8);
+    background-color: rgba(60, 56, 54, 0.95);
     /* Рамка модулей: bg3 */
     border: 2px solid rgb(102, 92, 84);
     border-radius: 10px;
@@ -58,7 +58,7 @@ tooltip label {
 #battery.plugged {
     color: #ebdbb2;
     /* Зелёный фон для зарядки: Green Dark */
-    background-color: rgba(152, 151, 26, 0.8);
+    background-color: rgba(152, 151, 26, 0.95);
     border: 2px solid rgb(121, 116, 14);
     border-radius: 10px;
 }
@@ -72,7 +72,7 @@ tooltip label {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 
-    background-color: rgba(40, 40, 40, 0.8);
+    background-color: rgba(40, 40, 40, 0.95);
     border: 2px solid rgb(204, 36, 29);
     border-radius: 10px;
 }

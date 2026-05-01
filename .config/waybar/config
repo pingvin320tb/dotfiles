@@ -14,27 +14,19 @@
         "tray",
         "pulseaudio#microphone",
         "pulseaudio",
-        "niri/language",
-        "custom/power"
+        "niri/language"
     ],
     "pulseaudio": {
         "tooltip": false,
         "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "{icon} {volume}%",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "format-icons": {
-            "default": [
-                "  ",
-                "  ",
-                "  "
-            ]
-        }
+        "format": "  {volume}%",
+        "format-muted": "  {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "   {volume}%",
-        "format-source-muted": "     {volume}%",
+        "format-source": " {volume}%",
+        "format-source-muted": "  {volume}%",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
@@ -44,7 +36,7 @@
         "interval": 2,
         "tooltip": false,
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  | {ifname}  󰜮 {bandwidthDownBytes} 󰜷 {bandwidthUpBytes}"
+        "format-ethernet": "󰈀 |{ifname} 󰜮 {bandwidthDownBytes} 󰜷 {bandwidthUpBytes}"
     },
     "backlight": {
         "tooltip": false,
@@ -54,7 +46,7 @@
         "on-scroll-down": "light -U 5"
     },
     "niri/language": {
-    "format": "  {}",
+    "format": " {}",
     "format-en": "EN",
     "format-ru": "RU"
     },
@@ -84,6 +76,7 @@
         "format": "<span size='16pt'>{:%H:%M}</span>",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click": "nwg-bar",
         "calendar": {
             "mode": "month",
             "on-scroll": 1,
@@ -98,12 +91,12 @@
     },
     "cpu": {
         "interval": 2,
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "max-length": 10
     },
     "memory": {
         "interval": 2,
-        "format": "  {used}GiB",
+        "format": " {used}GiB",
         "max-length": 10
     },
     "bluetooth": {
@@ -122,8 +115,8 @@
         "on-click-right": "killall fuzzel"
     },
     "custom/power": {
-        "format": "<span size='18pt'>⏻</span>",
-        "on-click": "wlogout"
+        "format": "<span size='12pt'>⏻</span>",
+        "on-click": "nwg-bar"
     },
     "user": {
         "format": "{user}",
@@ -157,7 +150,7 @@
         "on-click":"playerctl play-pause",
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
-        "max-length": 60,
+        "max-length": 40,
         "escape": true
     }
 }

@@ -1,0 +1,49 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "os",
+            "format": "Ubuntu (Независимый дистрибутив) {3}"
+        },
+        {
+            "type": "host",
+            "format": "Электроника МС 0511 (Revision 2026.1)"
+        },
+        {
+            "type": "kernel",
+            "format": "6.x-AI-GENERATED-DRIVERS"
+        },
+        {
+            "type": "uptime",
+            "format": "{1}d {2}h {3}m (Time to compile world: 48h)"
+        },
+        {
+            "type": "display",
+            "format": "640x480 @ 16 colors (HolyC Standard)"
+        },
+        {
+            "type": "de",
+            "format": "KDE Plasma (but actually Firefox with QT titlebars)"
+        },
+        {
+            "type": "wm",
+            "format": "Niri (Scrolling to Hell)"
+        },
+        {
+            "type": "cpu",
+            "format": "Intel 8 ядер (but identifies as Ryzen 7740X Mouse)"
+        },
+        {
+            "type": "gpu",
+            "format": "NVIDIA RTX 1080 (5GB) + RTX RGB PALIT (Hata Sgorit Edition)"
+        },
+        {
+            "type": "memory",
+            "format": "63.9GB / 64GB (Forge 1.20.1 ate the rest)"
+        },
+        "break",
+        "colors"
+    ]
+}
