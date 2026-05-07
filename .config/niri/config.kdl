@@ -113,12 +113,20 @@ output "HDMI-A-1" {
 
 output "DVI-D-1" {
     mode "1920x1080@60"
-    position x=1920 y=0
+    position x=1920 y=-60
+    scale 1
+    // transform "90"
 }
 // cursor theme
 cursor {
     xcursor-theme "Vimix-cursors"
     xcursor-size 24
+}
+
+gestures {
+    hot-corners {
+      bottom-right
+    }
 }
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -178,7 +186,8 @@ layout {
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+        // - CSS-    
+        // like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
         active-gradient from="#FABD2F" to="#FB4934" angle=45
@@ -187,7 +196,7 @@ layout {
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        // inactive-color "#504945"
+        inactive-color "#504945"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -202,7 +211,7 @@ layout {
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -290,7 +299,7 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/lib/xdg-desktop-portal-wlr"
-spawn-at-startup "udiskie" "--smart-tray"
+// spawn-at-startup "udiskie" "--smart-tray"
 // spawn-at-startup "xwayland-satellite"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -409,15 +418,17 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+W hotkey-overlay-title="Set random wallpaper" { spawn "sh" "-c" "awww img $(find /home/semen/Изображения/awww -type f | shuf -n 1) --transition-type grow --transition-duration 2"; }
-    Mod+E hotkey-overlay-title="Open file manager:pcmanfm" { spawn-sh "pcmanfm-qt"; }
+    Mod+E hotkey-overlay-title="Open file manager:pcmanfm-qt" { spawn "pcmanfm-qt"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    
+    // open nwg-bar
+    Super+Shift+S hotkey-overlay-title="Open nwg-bar menu" { spawn "nwg-bar"; }
 
     // reboot waybar
-    Mod+Shift+B hotkey-overlay-title="Reset waybar"{ spawn "sh" "-c" "pkill waybar; waybar &"; }
+    Mod+Shift+B hotkey-overlay-title="Reset waybar"{ spawn-sh "pkill waybar && waybar"; }
 
     // copy history
     Ctrl+Alt+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
@@ -640,7 +651,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    // Mod+W { toggle-column-tabbed-display; }
+     Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have

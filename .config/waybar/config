@@ -1,7 +1,7 @@
 {
     "layer": "top",
-    "modules-left": [
-        "niri/workspaces",
+    "modules-left": [  
+      "niri/workspaces",
         "cpu",
         "memory",
         "custom/music"
@@ -36,7 +36,7 @@
         "interval": 2,
         "tooltip": false,
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 |{ifname} 󰜮 {bandwidthDownBytes} 󰜷 {bandwidthUpBytes}"
+        "format-ethernet": "󰈀 | {ifname} 󰜮 {bandwidthDownBytes} 󰜷 {bandwidthUpBytes}"
     },
     "backlight": {
         "tooltip": false,
@@ -76,7 +76,6 @@
         "format": "<span size='16pt'>{:%H:%M}</span>",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "on-click": "nwg-bar",
         "calendar": {
             "mode": "month",
             "on-scroll": 1,
@@ -115,7 +114,7 @@
         "on-click-right": "killall fuzzel"
     },
     "custom/power": {
-        "format": "<span size='12pt'>⏻</span>",
+        "format": "⏻",
         "on-click": "nwg-bar"
     },
     "user": {
