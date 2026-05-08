@@ -97,13 +97,11 @@ format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [git_status]
 style = "bg:color_aqua"
-# Добавляем переменные для отображения конкретных счетчиков
 renamed = 'rn:$count '
 modified = 'mod:$count '
 deleted = 'del:$count '
 staged = 'stg:$count '
 untracked = 'un:$count '
-# Формат вывода (оставляем твой стиль, меняем только наполнение)
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
 
 [nodejs]
@@ -176,7 +174,7 @@ style = "bg:color_bg1"
 format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
 
 [cmd_duration]
-min_time = 500    # Показывать, только если команда шла дольше 0.5 сек
+min_time = 500
 style = "bg:color_bg1"
 format = '[[  $duration ](fg:color_fg0 bg:color_bg1)]($style)'
 
